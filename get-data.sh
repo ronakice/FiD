@@ -52,4 +52,3 @@ tar xvzf "${DOWNLOAD}/nq_passages.tar.gz" -C "${DOWNLOAD}"
 
 echo "Processing "$ROOT""
 python src/preprocess.py $DOWNLOAD $ROOT
-rm -r "${DOWNLOAD}"
