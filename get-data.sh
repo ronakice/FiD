@@ -7,7 +7,7 @@
 
 set -e
 
-ROOT="open_domain_data"
+ROOT="/project/def-jimmylin/shared_files/FiD"
 
 while [ "$#" -gt 0 ]; do
     arg=$1
