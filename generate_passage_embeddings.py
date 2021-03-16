@@ -45,7 +45,7 @@ def embed_passages(opt, passages, model, tokenizer):
 
             allids.append(ids)
             allembeddings.append(embeddings)
-            if k % 100 == 0:
+            if k % 10 == 0:
                 logger.info('Encoded passages %d', total)
 
     allembeddings = torch.cat(allembeddings, dim=0).numpy()

@@ -14,7 +14,7 @@ declare -A MAP=( ["nq_reader_base"]="https://dl.fbaipublicfiles.com/FiD/pretrain
                  ["tqa_reader_large"]="https://dl.fbaipublicfiles.com/FiD/pretrained_models/tqa_reader_large.tar.gz"\
                  ["tqa_retriever"]="https://dl.fbaipublicfiles.com/FiD/pretrained_models/tqa_retriever.tar.gz"\ )
 
-ROOT="pretrained_models"
+ROOT="/project/def-jimmylin/shared_files/FiD"
 allkeys=""
 for key in "${!MAP[@]}"; do allkeys+="$key "; done
 
