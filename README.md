@@ -170,13 +170,13 @@ After indexing, given an input query, passages can be efficiently retrieved:
 
 
 ```shell
-python passage_retrieval.py \
-    --model_path <model_dir> \
-    --passages psgs_w100.tsv \
-    --data_path data.json \
-    --passages_embeddings "wikipedia_embeddings/wiki_*" \
-    --output_path retrieved_data.json \
-    --n-docs 100 \
+python3 passage_retrieval.py \
+    --model_path $fid/nq_retriever \
+    --passages $fid/psgs_w100.tsv \
+    --data $fid/NQ/dev.json \
+    --passages_embeddings "$fid/wikipedia_embeddings/wikipedia*" \
+    --output_path $fid/NQ/retrieved_dev.json \
+    --n-docs 100
 ```
 
 We found that iterating the four steps here can improve performances, depending on the initial set of documents.

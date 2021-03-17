@@ -136,14 +136,14 @@ def main(opt):
     embeddings_dir = Path(input_paths[0]).parent
     index_path = embeddings_dir / 'index.faiss'
     if args.save_or_load_index and index_path.exists():
-        src.index.deserialize_from(embeddings_dir)
+        index.deserialize_from(embeddings_dir)
     else:
         logger.info(f'Indexing passages from files {input_paths}')
         start_time_indexing = time.time()
         index_encoded_data(index, input_paths, opt.indexing_batch_size)
         logger.info(f'Indexing time: {time.time()-start_time_indexing:.1f} s.')
         if args.save_or_load_index:
-            src.index.serialize(embeddings_dir)
+            index.serialize(embeddings_dir)
 
     questions_embedding = embed_questions(opt, data, model, tokenizer)
 
