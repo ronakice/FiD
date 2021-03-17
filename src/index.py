@@ -65,7 +65,7 @@ class Indexer(object):
         
         logger.info(f'Loading index from {index_file}, meta data from {meta_file}')
 
-        self.index = faiss.read_index(index_file)
+        self.index = faiss.read_index(str(index_file))
         logger.info('Loaded index of type %s and size %d', type(self.index), self.index.ntotal)
 
         with open(meta_file, "rb") as reader:
