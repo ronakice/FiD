@@ -50,9 +50,11 @@ class Indexer(object):
     def serialize(self, dir_path):
         index_file = dir_path / 'index.faiss'
         meta_file = dir_path / 'index_meta.dpr'
+        ids_file = dir_path / 'docid'
+        with open(ids_file) as fids:
+            for db_id in self.index_id_to_db_id:
+                fids.write(f"{db_id}\n")
         logger.info(f'Serializing index to {index_file}, meta data to {meta_file}')
-        print(index_file, type(index_file))
-        print(self.index, type(self.index))
         faiss.write_index(self.index, str(index_file))
         with open(meta_file, mode='wb') as f:
             pickle.dump(self.index_id_to_db_id, f)
@@ -60,6 +62,7 @@ class Indexer(object):
     def deserialize_from(self, dir_path):
         index_file = dir_path / 'index.faiss'
         meta_file = dir_path / 'index_meta.dpr'
+        
         logger.info(f'Loading index from {index_file}, meta data from {meta_file}')
 
         self.index = faiss.read_index(index_file)
