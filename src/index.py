@@ -53,7 +53,7 @@ class Indexer(object):
         logger.info(f'Serializing index to {index_file}, meta data to {meta_file}')
         print(index_file, type(index_file))
         print(self.index, type(self.index))
-        faiss.write_index(self.index, index_file)
+        faiss.write_index(self.index, str(index_file))
         with open(meta_file, mode='wb') as f:
             pickle.dump(self.index_id_to_db_id, f)
 
