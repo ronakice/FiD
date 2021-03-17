@@ -51,7 +51,8 @@ class Indexer(object):
         index_file = dir_path / 'index.faiss'
         meta_file = dir_path / 'index_meta.dpr'
         logger.info(f'Serializing index to {index_file}, meta data to {meta_file}')
-
+        print(index_file, type(index_file))
+        print(self.index, type(self.index))
         faiss.write_index(self.index, index_file)
         with open(meta_file, mode='wb') as f:
             pickle.dump(self.index_id_to_db_id, f)

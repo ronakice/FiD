@@ -176,9 +176,10 @@ python3 passage_retrieval.py \
     --data $fid/NQ/dev.json \
     --passages_embeddings "$fid/wikipedia_embeddings/wikipedia*" \
     --output_path $fid/NQ/retrieved_dev.json \
-    --n-docs 100
+    --n-docs 100 \
+    --per_gpu_batch_size 16 \
+    --save_or_load_index
 ```
-
 We found that iterating the four steps here can improve performances, depending on the initial set of documents.
 
 
