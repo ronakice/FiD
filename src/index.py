@@ -51,7 +51,7 @@ class Indexer(object):
         index_file = dir_path / 'index.faiss'
         meta_file = dir_path / 'index_meta.dpr'
         ids_file = dir_path / 'docid'
-        with open(ids_file) as fids:
+        with open(ids_file, "w") as fids:
             for db_id in self.index_id_to_db_id:
                 fids.write(f"{db_id}\n")
         logger.info(f'Serializing index to {index_file}, meta data to {meta_file}')
