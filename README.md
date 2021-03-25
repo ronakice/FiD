@@ -170,12 +170,12 @@ After indexing, given an input query, passages can be efficiently retrieved:
 
 
 ```shell
-python3 passage_retrieval.py \
+python3 passage_retrieval_2.py \
     --model_path $fid/nq_retriever \
     --passages $fid/psgs_w100.tsv \
-    --data $fid/NQ/dev.json \
+    --data $fid/NQ/test.json \
     --passages_embeddings "$fid/wikipedia_embeddings/wikipedia*" \
-    --output_path $fid/NQ/retrieved_dev.json \
+    --output_path $fid/NQ/tt.json \
     --n-docs 100 \
     --per_gpu_batch_size 16 \
     --save_or_load_index

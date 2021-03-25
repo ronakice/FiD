@@ -342,16 +342,20 @@ class Retriever(transformers.PreTrainedModel):
             text_output.to_tuple()
         text_output = text_output[0]
         if not self.config.projection:
+            print("PROJECTING")
             text_output = self.proj(text_output)
             text_output = self.norm(text_output)
 
         if extract_cls:
+            print("EXTRACTING")
             text_output = text_output[:, 0]
         else:
             if apply_mask:
+                print("AM")
                 text_output = text_output.masked_fill(~text_mask[:, :, None], 0.)
                 text_output = torch.sum(text_output, dim=1) / torch.sum(text_mask, dim=1)[:, None]
             else:
+                print("M")
                 text_output = torch.mean(text_output, dim=1)
         return text_output
 
