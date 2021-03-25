@@ -334,6 +334,7 @@ class Retriever(transformers.PreTrainedModel):
         return question_output, passage_output, score, loss
 
     def embed_text(self, text_ids, text_mask, apply_mask=False, extract_cls=False):
+        print(text_ids, text_mask)
         text_output = self.model(
             input_ids=text_ids,
             attention_mask=text_mask if apply_mask else None
