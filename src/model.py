@@ -358,6 +358,8 @@ class Retriever(transformers.PreTrainedModel):
             else:
                 print("M")
                 text_output = torch.mean(text_output, dim=1)
+        print(text_output[0])
+        break
         return text_output
 
     def kldivloss(self, score, gold_score):
