@@ -352,6 +352,8 @@ class Retriever(transformers.PreTrainedModel):
         else:
             if apply_mask:
                 print("AM")
+                print(text_output.shape)
+                print(text_output)
                 text_output = text_output.masked_fill(~text_mask[:, :, None], 0.)
                 print(text_output.shape)
                 text_output = torch.sum(text_output, dim=1) / torch.sum(text_mask, dim=1)[:, None]
