@@ -32,6 +32,9 @@ def main(opt):
     with open(opt.data, 'r') as fin:
         data = json.load(fin)
     answers = [ex['answers'] for ex in data]
+    print(data[0])
+    for ex in data:
+        print(ex['answers'])
     questions_doc_hits = validate(data, args.validation_workers)
 
 
