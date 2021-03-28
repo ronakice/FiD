@@ -75,6 +75,7 @@ def calculate_matches(data: List, workers_num: int):
     top_k_hits = [0] * n_docs
     for question_hits in scores:
         best_hit = next((i for i, x in enumerate(question_hits) if x), None)
+        print(best_hit)
         if best_hit is not None:
             top_k_hits[best_hit:] = [v + 1 for v in top_k_hits[best_hit:]]
 
